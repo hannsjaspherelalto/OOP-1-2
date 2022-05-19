@@ -1,14 +1,14 @@
 import pyodbc
 
 try:
-    connect = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};'
-                             r'DBQ=C:\Users\Jaspher\Documents\Recit.accdb;')
+    connect = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\Jaspher\Downloads\Database01.accdb;')
     print("Connected")
 
     database = connect.cursor()
-    database.execute(''' INSERT INTO Database01 (ID, Student Name, Age, Address, Birthday, SemGrades)
-                     VALUES ('11', 'Hanns', '20', 'Cavite', '25/04/2002', '100') ''')
     database.commit()
+    database.execute('''
+                        INSERT INTO Table1 (ID, FullName, Age, Address, Birthdate, SemGrade)
+                        VALUES (?,?,?,?,?,?)''', (11, 'Hanns Elalto', 20, 'Cavite', '25/04/2002', 90))
     print("Updated")
 
 except pyodbc.Error:
