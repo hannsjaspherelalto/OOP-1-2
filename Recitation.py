@@ -7,7 +7,7 @@ try:
 
     database = connect.cursor()
     database.execute(''' INSERT INTO Database01 (ID, Student Name, Age, Address, Birthday, SemGrades)
-                     VALUES ('11', 'Hanns', '20', 'Cavite', '04/25/2002', '100') ''')
+                     VALUES ('11', 'Hanns', '20', 'Cavite', '25/04/2002', '100') ''')
     database.commit()
     print("Updated")
 
